@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beamRequest>
+	<model>
+		<calculationParameters>
+			<limitDisplacement id="" dispLimit1="" dispLimit2="" relative=""/> 
+			<resultsDivision>14</resultsDivision>
+		</calculationParameters>
+		<nodes>
+			<node id="1" x="0" y="0" z="0" supportName="support2"/>
+			<node id="2" x="1.5" y="0" z="0" supportName="support1"/>
+			<node id="3" x="2.7" y="0" z="0" supportName="support1"/>
+		</nodes>
+		<bars>
+			<bar id="1" startNodeId="1" endNodeId="2"  materialName="mat1" sectionName="sec1" gamma="0" limitDisplacementId=""/>
+			<bar id="2" startNodeId="2" endNodeId="3"  materialName="mat1" sectionName="sec1" gamma="0"/>
+		</bars>
+		<materials>
+			<material name="mat1" young="2050000000" poisson="0.3" density="77010" allowableStress="275000000"/>
+		</materials>
+		<sections>
+			<section name="sec1" area="0.000283" lx="1" ly="0.00000007704" lz="0.00000006419" gamma="0" wy="1" wz="1"/>
+		</sections>
+		<supports>
+			<support name="support1" angX="0" angY="0" angZ="0" ux="true" uy="true" uz="true" rx="true" ry="false" rz="false" sux="0" suy="0" suz="0" srx="0" sry="0" srz="0"/>
+			<support name="support2" angX="0" angY="0" angZ="0" ux="true" uy="true" uz="true" rx="true" ry="true" rz="true" sux="0" suy="0" suz="0" srx="0" sry="0" srz="0"/>
+		</supports>
+		<loads>
+			<loadCases>
+				<loadCase id="1" type="eLoadCaseDead" factor="1.5"/>
+				<loadCase id="2" type="eLoadCaseSelfWeight" factor="1.35"/>
+			</loadCases>
+			<loadPoints>
+				<loadPoint id="1" barId="1" caseId="1">
+					<point0	dist="0.27" angX="0" angY="0" angZ="0" fx="0" fy="0" fz="-1400" mx="0" my="0" mz="0"/>
+				</loadPoint>	
+				<loadPoint id="2" barId="1" caseId="1">
+					<point0 dist="0.53" angX="0" angY="0" angZ="0" fx="0" fy="-800" fz="0" mx="0" my="0" mz="0"/>
+				</loadPoint>	
+				<loadPoint id="5" barId="1" caseId="1">
+					<point0 dist="0.8" angX="0" angY="0" angZ="0" fx="0" fy="0" fz="0" mx="0" my="1100" mz="0"/>
+				</loadPoint>	
+				<loadPoint id="3" barId="2" caseId="1">
+					<point0 dist="0.17" angX="0" angY="0" angZ="0" fx="0" fy="0" fz="-1200" mx="0" my="0" mz="0"/>
+					<point1 dist="0.67" angX="0" angY="0" angZ="0" fx="0" fy="0" fz="-1200" mx="0" my="0" mz="0"/>				
+				</loadPoint>
+				<loadPoint id="4" barId="2" caseId="1">
+					<point0 dist="0.33" angX="0" angY="0" angZ="0" fx="0" fy="600" fz="0" mx="0" my="0" mz="0"/>
+					<point1 dist="0.75" angX="0" angY="0" angZ="0" fx="0" fy="600" fz="0" mx="0" my="0" mz="0"/>			
+				</loadPoint>
+			</loadPoints>
+		</loads>	
+	</model>
+</beamRequest>	

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+<body>
+    <div id="background"></div>
+    <div id="webGL"></div>
+
+
+    <div id="cameraButtons">
+        <button id="home">home</button>
+        <button id="left">left</button>
+        <button id="right">right</button>
+        <button id="front">front</button>
+        <button id="back">back</button>
+        <button id="top">top</button>
+        <button id="bottom">bottom</button>
+        <br>
+        <button id="addSupport">add support</button>
+        <button id="addVerticalLoad">add vertical point load</button>
+        <button id="addHorizontalLoad">add horizontal point load</button>
+        <br>
+        <button id="addUniformForce">add uniform force</button>
+        <button id="addBendForce1">add bend force 1</button>
+        <button id="addBendForce2">add bend force 2</button>
+        <br>
+        <button id="setBeamLength">set beam length</button>
+        <button id="rotateBeam">rotate beam</button>
+        <button id="toggleWall">toggle wall</button>
+        <br>
+        <button id="undo">undo</button>
+        <button id="redo">redo</button>
+        <button id="remove">remove object</button>
+        <br>
+        <button id="orbit"onclick="">orbit</button>
+        <button id="pan"onclick="controlsState('pan')">pan</button>
+        <button id="zoom"onclick="controlsState('zoom')">zoom</button>
+        <br>
+        <button onclick="generateXML()">save XML</button>
+    </div>
+
+
+    <script src="libs/jquery-2.1.4.min.js"></script>
+    <script src="libs/three.min.js"></script>
+    <script src="libs/OrbitControls.js"></script>
+
+    <script src="js/Animator.js"></script>
+    <script src="js/Loader.js"></script>
+    <script src="js/Viewer.js"></script>
+</body>
+</html>
