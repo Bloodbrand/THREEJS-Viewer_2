@@ -1,8 +1,8 @@
-function Animator(){
+function Animator(divID){
 // <editor-fold desc="public variables">
     this.body = $("body");
     this.background = $("#background");
-    this.container = $("#webGL")[0];
+    this.container = $("#"+divID)[0];
     this.width = this.container.clientWidth;
     this.height = this.container.clientHeight;
     this.aspectRatio = this.width / this.height;
@@ -26,12 +26,14 @@ function Animator(){
     this.camera = undefined;
     this.gizmoCamera = undefined;
     this.renderer = undefined;
+    this.selectedGizmo = undefined;
+    this.zoomStepPercent = 0.05;
+    this.cameraBaseZoom = 25;
 // </editor-fold>
 
 // <editor-fold desc="private variables">
     var _this = this;
-    var cameraHomePos = new THREE.Vector3(10, 15, -34);
-    var cameraBaseZoom = 25;
+    var cameraHomePos = new THREE.Vector3(20, 30, -60);
     var minZoom = 4;
     var maxZoom = 80;
     var frameID = 0;
@@ -40,7 +42,6 @@ function Animator(){
     var holdingCtrl = false;
     var mouseXmark = 0;
     var mouse = new THREE.Vector2();
-    var selectedGizmo = undefined;
     var gizmoSelectedColor = {r: 0.3, g: 0.3, b: 0.3};
     var rmbZoomSens = 30;
     var arrowHideDistance = 100;
@@ -136,6 +137,7 @@ this.add_XYZ_Gizmo = function() {
 this.startAnimating = function(){
     animate();
 };
+
 function animate(time) {
     /*
      -the main animation loop that handles:
@@ -194,10 +196,10 @@ function spritesLookAt () {
 
 // <editor-fold desc="Scene utils"
 function resetCameraZoom () {
-    _this.camera.zoom = cameraBaseZoom;
+    _this.camera.zoom = _this.cameraBaseZoom;
     _this.camera.updateProjectionMatrix();
 
-    _this.gizmoCamera.zoom = cameraBaseZoom;
+    _this.gizmoCamera.zoom = _this.cameraBaseZoom;
     _this.gizmoCamera.updateProjectionMatrix();
 }
 
@@ -232,29 +234,29 @@ function addControls() {
     $("#zoomIn").mousedown(function(){zoomIn()});
     $("#zoomOut").mousedown(function(){zoomOut()});
 
-    $("#home").mousedown(function(){snapCamera('home')});
-    $("#left").mousedown(function(){snapCamera('left')});
-    $("#right").mousedown(function(){snapCamera('right')});
-    $("#front").mousedown(function(){snapCamera('front')});
-    $("#back").mousedown(function(){snapCamera('back')});
-    $("#top").mousedown(function(){snapCamera('top')});
-    $("#bottom").mousedown(function(){snapCamera('bottom')});
+    $("#home").mousedown(function(){_this.snapCamera('home')});
+    $("#left").mousedown(function(){_this.snapCamera('left')});
+    $("#right").mousedown(function(){_this.snapCamera('right')});
+    $("#front").mousedown(function(){_this.snapCamera('front')});
+    $("#back").mousedown(function(){_this.snapCamera('back')});
+    $("#top").mousedown(function(){_this.snapCamera('top')});
+    $("#bottom").mousedown(function(){_this.snapCamera('bottom')});
 
     $("#addSupport").mousedown(function(){_this.loaderComponent.addSupport()});
     $("#addVerticalLoad").mousedown(function(){_this.loaderComponent.addPointForce(0, 0, -1400)});
     $("#addHorizontalLoad").mousedown(function(){_this.loaderComponent.addPointForce(0, 1400, 0)});
 
     $("#addUniformForce").mousedown(function(){_this.loaderComponent.addUniformForce()});
-    $("#addBendForce1").mousedown(function(){addPointForce(1, 0)});
-    $("#addBendForce2").mousedown(function(){addPointForce(-1, 0)});
+    $("#addBendForce1").mousedown(function(){_this.loaderComponent.addPointForce(1, 0)});
+    $("#addBendForce2").mousedown(function(){_this.loaderComponent.addPointForce(-1, 0)});
 
-    $("#setBeamLength").mousedown(function(){setBeamLength(0)});
-    $("#rotateBeam").mousedown(function(){rotateBeam()});
-    $("#toggleWall").mousedown(function(){toggleWall()});
+    $("#setBeamLength").mousedown(function(){_this.loaderComponent.setBeamLength(0)});
+    $("#rotateBeam").mousedown(function(){_this.loaderComponent.rotateBeam()});
+    $("#toggleWall").mousedown(function(){_this.loaderComponent.toggleWall()});
 
     $("#undo").mousedown(function(){manageActions.undo()});
     $("#redo").mousedown(function(){manageActions.redo()});
-    $("#remove").mousedown(function(){removeGizmo()});
+    $("#remove").mousedown(function(){_this.loaderComponent.removeGizmo()});
 
     $("#orbit").mousedown(function(){controlsState('orbit')});
     $("#pan").mousedown(function(){controlsState('pan')});
@@ -278,19 +280,19 @@ function onMouseDown (event) {
          -resets emissive color for all gizmos
          -sets selected emissive color for selected gizmo
          */
-        selectedGizmo = obj.object;
+        _this.selectedGizmo = obj.object;
         //controlsState("orbit");
         toggleInput(false);
 
         if(holdingCtrl)
-            _this.addActionProperty(selectedGizmo,
-                {before: _this.loaderComponent.copyEuler(selectedGizmo.rotation)});
+            _this.addActionProperty(_this.selectedGizmo,
+                {before: _this.loaderComponent.copyEuler(_this.selectedGizmo.rotation)});
         else
-            _this.addActionProperty(selectedGizmo,
-                {before: _this.loaderComponent.copyV3(selectedGizmo.position)});
+            _this.addActionProperty(_this.selectedGizmo,
+                {before: _this.loaderComponent.copyV3(_this.selectedGizmo.position)});
 
         resetGizmoEmissive();
-        selectedGizmo.material.emissive = gizmoSelectedColor;
+        _this.selectedGizmo.material.emissive = gizmoSelectedColor;
     }
     /*
      -if nothing valid is hit, resets all gizmo emisive colors
@@ -317,9 +319,9 @@ function onMouseMove (event) {
 
     updateMousePos(event);
     moveLightWithCamera();
-    if(selectedGizmo/*mouseDown*/) {
-        if(holdingCtrl && (selectedGizmo.gizmoType == "loadPoint"
-            ||selectedGizmo.gizmoType == "linear")) detectMouseMoveDirection(event);
+    if(_this.selectedGizmo/*mouseDown*/) {
+        if(holdingCtrl && (_this.selectedGizmo.gizmoType == "loadPoint"
+            ||_this.selectedGizmo.gizmoType == "linear")) detectMouseMoveDirection(event);
         else moveGizmo();
     }
 }
@@ -330,15 +332,15 @@ function onMouseUp (event) {
      -re-enables user input
      */
     mouseDown = false;
-    if(selectedGizmo){
-        var gizmoPos = _this.loaderComponent.twoDecVec3(selectedGizmo.position);
+    if(_this.selectedGizmo){
+        var gizmoPos = _this.loaderComponent.twoDecVec3(_this.selectedGizmo.position);
         if(!holdingCtrl)
-            _this.addActionProperty(selectedGizmo, {after: _this.loaderComponent.copyV3(gizmoPos)});
-        updateNode(selectedGizmo, gizmoPos.x);
+            _this.addActionProperty(_this.selectedGizmo, {after: _this.loaderComponent.copyV3(gizmoPos)});
+        updateNode(_this.selectedGizmo, gizmoPos.x);
 
-        addAction(selectedGizmo);
-        _this.loaderComponent.beamDetails.lastSelected = selectedGizmo;
-        selectedGizmo = undefined;
+        addAction(_this.selectedGizmo);
+        _this.loaderComponent.beamDetails.lastSelected = _this.selectedGizmo;
+        _this.selectedGizmo = undefined;
         toggleInput(true);
     }
 }
@@ -359,71 +361,24 @@ function onDoubleClick (event) {
          -prompts the user for a new position
          -positions the selected gizmo to the new value
          */
-        selectedGizmo = obj.object;
+        _this.selectedGizmo = obj.object;
 
-        if(selectedGizmo.type == "sprite") selectedGizmo = selectedGizmo.parent.parent;
-        else if (selectedGizmo.type == "lengthSprite") { setBeamLength(); onMouseUp(); return; }
+        if(_this.selectedGizmo.type == "sprite") _this.selectedGizmo = _this.selectedGizmo.parent.parent;
+        else if (_this.selectedGizmo.type == "lengthSprite") { _this.loaderComponent.setBeamLength(); onMouseUp(); return; }
 
         var newX = prompt("new position");
-        if(newX != undefined || isNaN(newX)) selectedGizmo.position.setX(
+        if(newX != undefined || isNaN(newX)) _this.selectedGizmo.position.setX(
             -newX / _this.loaderComponent.toMilimeter);
         onMouseUp();
     }
     else resetGizmoEmissive();
 }
 
-function setBeamLength () {
-    /*
-     -ask for a new beam length
-     -replace the current beam
-     -set a new length in the beamDetails object
-     -make the new beam and beam gizmos
-     */
-    var newLength = prompt("new length in mm");
-    if(newLength == undefined || isNaN(newLength)) return;
-
-    _this.viewerComponent.ClearModel();
-    //bigger than last
-    if(newLength > _this.loaderComponent.beamDetails.length
-        * _this.loaderComponent.toMilimeter){
-        var lastNode = _this.loaderComponent.findNode.last();
-        lastNode.setAttribute("x", (newLength / _this.loaderComponent.toMilimeter
-        / _this.loaderComponent.toMeter).toString());
-        _this.loaderComponent.beamDetails.length = newLength / _this.loaderComponent.toMilimeter;
-        _this.viewerComponent.LoadModel();
-        return;
-    }
-    //else
-    for (var i = _this.loaderComponent.viewerBars.length - 1; i >= 0; i--) {
-        var curBar = _this.loaderComponent.viewerBars[i];
-        var startNode = _this.loaderComponent.getNodeByID(curBar.getAttribute("startNodeId"));
-        var endNode = _this.loaderComponent.getNodeByID(curBar.getAttribute("endNodeId"));
-        if(newLength > curBar.startPosX * _this.loaderComponent.toMilimeter *
-            _this.loaderComponent.toMeter){
-            //bigger than last start
-            endNode.setAttribute("x", (newLength / _this.loaderComponent.toMilimeter
-            / _this.loaderComponent.toMeter).toString());
-            _this.viewerComponent.LoadModel();
-            break;
-        }
-        else {
-            startNode.setAttribute("x", 0);
-            _this.viewerComponent.LoadModel();
-            break;
-        }
-
-        //console.log(viewerBars[i].startPosX)
-    }
-    _this.loaderComponent.beamDetails.length = newLength / _this.loaderComponent.toMilimeter;
-    //center the camera to the beam (this is optional and can be commented out)
-    _this.viewerComponent.centerCamToBeam();
-}
-
 function detectCTRLkey (event, bool) {
     if(bool == holdingCtrl) return;
-    if(selectedGizmo && selectedGizmo.Action &&
-        selectedGizmo.Action.arg.before.constructor == THREE.Vector3)
-        selectedGizmo.Action = undefined;
+    if(_this.selectedGizmo && _this.selectedGizmo.Action &&
+        _this.selectedGizmo.Action.arg.before.constructor == THREE.Vector3)
+        _this.selectedGizmo.Action = undefined;
 
     if (event.keyCode == 17) holdingCtrl = bool;
 }
@@ -436,13 +391,13 @@ function detectMouseMoveDirection (event) {
     if(event.clientX > mouseXmark + gizmoRotateStep)
     {
         mouseXmark = event.clientX;
-        _this.loaderComponent.rotateGizmo(selectedGizmo, true);
+        _this.loaderComponent.rotateGizmo(_this.selectedGizmo, true);
     }
 
     if(event.clientX < mouseXmark - gizmoRotateStep)
     {
         mouseXmark = event.clientX;
-        _this.loaderComponent.rotateGizmo(selectedGizmo, false);
+        _this.loaderComponent.rotateGizmo(_this.selectedGizmo, false);
     }
 }
 
@@ -460,10 +415,14 @@ function manageMouseZoom (event) {
     var y = -( event.clientY / window.innerHeight ) * 2 + 1;
     if(y > mouse.y) _this.camera.zoom += Math.abs(y - mouse.y) * rmbZoomSens;
     else _this.camera.zoom -= Math.abs(y - mouse.y) * rmbZoomSens;
-    if(_this.camera.zoom <= minZoom)  _this.camera.zoom = minZoom;
-    if(_this.camera.zoom >= maxZoom)  _this.camera.zoom = maxZoom;
+    _this.CheckZoomLimits();
     _this.camera.updateProjectionMatrix();
 }
+
+this.CheckZoomLimits = function(){
+    if(_this.camera.zoom <= minZoom) { _this.camera.zoom = minZoom;}
+    else if(_this.camera.zoom >= maxZoom)  _this.camera.zoom = maxZoom;
+};
 
 function castRay (array) {
     /*
@@ -496,7 +455,7 @@ function moveGizmo (x, obj) {
      -may not move a gizmo outside of the beam
      */
     _this.manageDistanceSprites();
-    if(selectedGizmo) obj = selectedGizmo;
+    if(_this.selectedGizmo) obj = _this.selectedGizmo;
     if(!obj) return;
     if(x == undefined) x = castRay(obj.axisPlanes).point.x;
     if (checkOutOfBounds(x) == "min" && obj.gizmoType != "support")
@@ -599,17 +558,19 @@ function updateSupport (obj, x) {
     return true;
 }
 
-function snapCamera (pos) {
+this.snapCamera = function(pos) {
     /*
      -called by the UI, moves the camera to fixed positions
      -after that, snaps the light position and rotation to match main camera
      */
     switch (pos){
         case "right":
-            _this.camera.position.set(-_this.loaderComponent.beamDetails.length/2, 0, -cameraHomePos.y);
+            _this.camera.position.set(-_this.loaderComponent.beamDetails.length/2, 0,
+                -cameraHomePos.y);
             break;
         case "left":
-            _this.camera.position.set(-_this.loaderComponent.beamDetails.length/2, 0, cameraHomePos.y);
+            _this.camera.position.set(-_this.loaderComponent.beamDetails.length/2, 0,
+                cameraHomePos.y);
             break;
         case "front":
             _this.camera.position.set(cameraHomePos.x, 0, 0);
@@ -619,10 +580,12 @@ function snapCamera (pos) {
             cameraHomePos.x), 0, 0 );
             break;
         case "top":
-            _this.camera.position.set(-_this.loaderComponent.beamDetails.length / 2 , cameraHomePos.y, 0.01 );
+            _this.camera.position.set(-_this.loaderComponent.beamDetails.length / 2 ,
+                cameraHomePos.y, 0.01 );
             break;
         case "bottom":
-            _this.camera.position.set(-_this.loaderComponent.beamDetails.length / 2 , -cameraHomePos.y, 0.01 );
+            _this.camera.position.set(-_this.loaderComponent.beamDetails.length / 2 ,
+                -cameraHomePos.y, 0.01 );
             break;
         case "home":
             _this.camera.position.copy(cameraHomePos);
@@ -633,7 +596,8 @@ function snapCamera (pos) {
     moveLightWithCamera();
     resetCameraZoom();
     _this.camera.lookAt(_this.controls.target);
-}
+    _this.viewerComponent.centerCamToBeam();
+};
 
 function manageDistanceGizmoOrder () {
     /*
@@ -722,11 +686,10 @@ var manageActions = {
         var action = actionsArray[manageActions.index];
         if(action){
             if(checkState(action, index)) action.fun(action, index);
-            manageDistanceSprites(true);
+            _this.manageDistanceSprites(true);
         }
     }
 };
-
 function checkArrayExtremes (index) {
     if(index == 1 && manageActions.index < 0)
         manageActions.index++;

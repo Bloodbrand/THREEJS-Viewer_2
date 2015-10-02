@@ -34,6 +34,7 @@ function Loader(fileName, beamHolder){
     this.toMeter = 10;
     this.toMilimeter = 100;
     this.animatorComponent = undefined;
+    this.viewerComponent = undefined;
     this.beamDetails = {
         width: 1,
         height: 1,
@@ -120,8 +121,9 @@ function Loader(fileName, beamHolder){
         for (var i = 0; i < _this.viewerNodes.length; i++)
             if(Number(_this.viewerNodes[i].getAttribute("id")) == id)
                 return _this.viewerNodes[i];
-    }
+    };
 
+    this.CreateXML_Element = createXML_Element;
     function createXML_Element (args) {
         var ele = _this.xmlparsed.createElement(args.name);
 
@@ -132,6 +134,7 @@ function Loader(fileName, beamHolder){
         return ele;
     }
 
+    this.CheckValidNode = checkValidNode;
     function checkValidNode (node) { if (!/^\s*$/.test(node.nodeValue)) return true; }
 // </editor-fold>
 
@@ -212,54 +215,54 @@ function Loader(fileName, beamHolder){
         return returnSupports;
     }
 
-function getBars (viewerBeamRequest) {
-    var bars = htmlCollectionToArray(viewerBeamRequest.getElementsByTagName("bars")[0].childNodes);
-    /*
-     -loop bars and add start and end positions for meshes
-     */
-    for (var i = bars.length - 1; i >= 0; i--) {
-        var startNode = getNodeByID(Number(bars[i].getAttribute("startNodeId")));
-        var endNode = getNodeByID(Number(bars[i].getAttribute("endNodeId")));
+    function getBars (viewerBeamRequest) {
+        var bars = htmlCollectionToArray(viewerBeamRequest.getElementsByTagName("bars")[0].childNodes);
+        /*
+         -loop bars and add start and end positions for meshes
+         */
+        for (var i = bars.length - 1; i >= 0; i--) {
+            var startNode = getNodeByID(Number(bars[i].getAttribute("startNodeId")));
+            var endNode = getNodeByID(Number(bars[i].getAttribute("endNodeId")));
 
-        if(!startNode || !endNode){
-            console.error("Can not find valid nodes for bar " + bars[i].getAttribute("id"));
-            bars[i].invalidNodes = true;
-            continue;
-        }
-        bars[i].startPosX = Number(startNode.getAttribute("x"));
-        bars[i].endPosX = Number(endNode.getAttribute("x"));
-    }
-    return bars;
-}
-
-this.findNode = function () {
-    var firstNode, lastNode, largestX = 0, smallestX = Infinity;
-
-    return{
-        last: function() {
-            for (var i = 0; i < _this.viewerNodes.length; i++) {
-                var curX = Number(_this.viewerNodes[i].getAttribute("x"));
-                if(curX > largestX)
-                {
-                    largestX = curX;
-                    lastNode = _this.viewerNodes[i];
-                }
+            if(!startNode || !endNode){
+                console.error("Can not find valid nodes for bar " + bars[i].getAttribute("id"));
+                bars[i].invalidNodes = true;
+                continue;
             }
-            return lastNode;
-        },
-        first: function () {
-            for (var i = 0; i < _this.viewerNodes.length; i++) {
-                var curX = Number(_this.viewerNodes[i].getAttribute("x"));
-                if(curX < smallestX)
-                {
-                    smallestX = curX;
-                    firstNode = _this.viewerNodes[i];
-                }
-            }
-            return firstNode;
+            bars[i].startPosX = Number(startNode.getAttribute("x"));
+            bars[i].endPosX = Number(endNode.getAttribute("x"));
         }
+        return bars;
     }
-}();
+
+    this.findNode = function () {
+        var firstNode, lastNode, largestX = 0, smallestX = Infinity;
+
+        return{
+            last: function() {
+                for (var i = 0; i < _this.viewerNodes.length; i++) {
+                    var curX = Number(_this.viewerNodes[i].getAttribute("x"));
+                    if(curX > largestX)
+                    {
+                        largestX = curX;
+                        lastNode = _this.viewerNodes[i];
+                    }
+                }
+                return lastNode;
+            },
+            first: function () {
+                for (var i = 0; i < _this.viewerNodes.length; i++) {
+                    var curX = Number(_this.viewerNodes[i].getAttribute("x"));
+                    if(curX < smallestX)
+                    {
+                        smallestX = curX;
+                        firstNode = _this.viewerNodes[i];
+                    }
+                }
+                return firstNode;
+            }
+        }
+    }();
 // </editor-fold>
 
 // <editor-fold desc="sprite maker"
@@ -507,22 +510,15 @@ function makeGizmo (type, text, xPos, justMesh) {
 }
 
 function makeUniformForce (start, end, barID, obj) {
-    /*
-     -make and add a uniform force at a supplied position
-     */
-    //
-    //console.log(start, end)
-    if(barID.hasOwnProperty("barID1")){
-
-    }
+    //make and add a uniform force at a supplied position
+    if(barID.hasOwnProperty("barID1")){}
     else barID = barID.barID;
 
-    var points, lineLength;
+    var points = 0, lineLength = 0;
     if (end == undefined){
         points = 20;
         lineLength = (points - 1) * distanceBetweenUniformArrows;
-    }
-    else {
+    } else {
         points = (end - start) / (distanceBetweenUniformArrows * _this.toMilimeter);
         lineLength = (end - start) / _this.toMilimeter;
     }
@@ -623,7 +619,6 @@ function makeUniformForce (start, end, barID, obj) {
     }
     mesh.points = 2;
     mesh.barID = barID;
-
 
     if(Number(obj.loadPoint0.point0.getAttribute("fy")) > 0)
         _this.rotateGizmo(mesh, true, true);
@@ -784,7 +779,7 @@ this.addUniformForce = function() {
             dist: dist0.toFixed(3),
             barId: barID0,
             angX: 0, angY: 0, angZ: 0,
-            fx: 0, fy: 0, fz: 0,
+            fx: 0, fy: 0, fz: -1200,
             mx: 0, my: 0, mz: 0,
             points: 2
         }),
@@ -805,7 +800,7 @@ this.addUniformForce = function() {
     makeUniformForce(start, end, {barID: barID0},
         {loadPoint0: childNode, loadPoint1: childNode});
     _this.animatorComponent.manageDistanceSprites(true);
-}k
+};
 // </editor-fold>
 
 // <editor-fold desc="manage gizmos"
@@ -815,8 +810,8 @@ this.rotateGizmo = function(gizmo, ccw, doNotRecord) {
      -repositions the arrows below
      -sets a custom color to new reflect axis
      */
-    if(!doNotRecord && gizmo.Action == undefined) _this.animatorComponent.addActionProperty(gizmo,
-        {before: _this.copyEuler(gizmo.rotation)});
+    if(!doNotRecord && gizmo.Action == undefined)
+        _this.animatorComponent.addActionProperty(gizmo,{before: _this.copyEuler(gizmo.rotation)});
 
     if(ccw)gizmo.rotateX(-Math.PI/2);
     else gizmo.rotateX(Math.PI/2);
@@ -842,7 +837,7 @@ this.rotateGizmoDeg = function(gizmo, rotation, action) {
     if(action)
     {
         gizmo.rotation.copy(rotation);
-        rotation = Math.round(radiansToDegrees(rotation.x));
+        rotation = Math.round(_this.radiansToDegrees(rotation.x));
     }
 
     switch(rotation){
@@ -887,7 +882,7 @@ this.rotateGizmoDeg = function(gizmo, rotation, action) {
         gizmo.point0[newText.slice(0, 2).toLowerCase()] = newText.slice(2, newText.length);
     }
 
-    if(action) addActionProperty(gizmo, {after: copyEuler(gizmo.rotation)});
+    if(action) _this.animatorComponent.addActionProperty(gizmo, {after: _this.copyEuler(gizmo.rotation)});
     if(newText) _this.changeSpriteText(gizmo.aboveSprite.children[0], newText);
 }
 // </editor-fold>
@@ -1004,6 +999,90 @@ function addNode (x) {
     _this.viewerNodes.push(newNode);
     return newNode;
 }
+
+this.rotateBeam = function(dir) {
+    if(dir == undefined) dir = 1;
+    for (var i = 0; i < _this.viewerBars.length; i++){
+        _this.viewerBars[i].mesh.rotateZ(-(Math.PI / 2) * dir);
+        var curRot = Number(_this.viewerBars[i].getAttribute("gamma"));
+        curRot += 90;
+        if(curRot == 360) curRot = 0;
+        _this.viewerBars[i].setAttribute("gamma", curRot.toString());
+    }
+};
+
+this.setBeamLength = function() {
+    /*
+     -ask for a new beam length
+     -replace the current beam
+     -set a new length in the beamDetails object
+     -make the new beam and beam gizmos
+     */
+    var newLength = prompt("new length in mm");
+    if(newLength == undefined || isNaN(newLength)) return;
+
+    _this.viewerComponent.ClearModel();
+    //bigger than last
+    if(newLength > _this.beamDetails.length * _this.toMilimeter){
+        var lastNode = _this.findNode.last();
+        lastNode.setAttribute("x", (newLength / _this.toMilimeter / _this.toMeter).toString());
+        _this.beamDetails.length = newLength / _this.toMilimeter;
+        _this.viewerComponent.LoadModel();
+        return;
+    }
+    //else
+    for (var i = _this.viewerBars.length - 1; i >= 0; i--) {
+        var curBar = _this.viewerBars[i];
+        var startNode = _this.getNodeByID(curBar.getAttribute("startNodeId"));
+        var endNode = _this.getNodeByID(curBar.getAttribute("endNodeId"));
+        if(newLength > curBar.startPosX * _this.toMilimeter * _this.toMeter){
+            //bigger than last start
+            endNode.setAttribute("x", (newLength / _this.toMilimeter / _this.toMeter).toString());
+            _this.viewerComponent.LoadModel();
+            break;
+        }
+        else {
+            startNode.setAttribute("x", 0);
+            _this.viewerComponent.LoadModel();
+            break;
+        }
+    }
+    _this.beamDetails.length = newLength / _this.toMilimeter;
+    //center the camera to the beam (this is optional and can be commented out)
+    _this.viewerComponent.centerCamToBeam();
+};
+
+this.toggleWall = function () {
+    //if no fixed support, and user clicks, make one
+    if(!_this.beamDetails.wall) _this.beamDetails.wall = makeFixedSupport(false, 0);
+    _this.beamDetails.wall.visible = !_this.beamDetails.wall.visible;
+};
+
+this.removeGizmo = function() {
+    if(!_this.beamDetails.lastSelected /*|| !_this.animatorComponent.selectedGizmo*/) return;
+    var g = _this.beamDetails.lastSelected;
+    var index = _this.gizmos.indexOf(g);
+    _this.gizmos.splice(index, 1);
+
+    switch(g.gizmoType){
+        case "support":
+            var i = _this.supportMeshes.indexOf(g);
+            _this.supportMeshes.splice(i, 1);
+            _this.supportMeshes.sort(sortSupports);
+            break;
+        case "loadPoint":
+        case "linear":
+        case "bending":
+            var i = _this.loadMeshes.indexOf(g);
+            _this.loadMeshes.splice(i, 1);
+            break;
+    }
+
+    g.belowSprite.parent.remove(g.belowSprite);
+    g.parent.remove(g);
+    _this.beamDetails.lastSelected = undefined;
+    _this.animatorComponent.manageDistanceSprites(true);
+};
 
 function cloneNode (node) { return node.cloneNode(); }
 
@@ -1328,6 +1407,35 @@ function makeLoadPoint (i, dist, my, fy, fz, barID, obj) {
 
     _this.loadMeshes.push(loadPoint);
     _this.beamHolder.add(loadPoint);
+}
+
+this.MakeGraph = function(points) {
+    //extrudes a mesh, problems when self intersecting
+    /*
+     var graphShape = new THREE.Shape();
+     graphShape.moveTo(points[0].x, points[0].y);
+     for (var i = 0; i < points.length; i++) {
+     graphShape.lineTo(points[i].x, points[i].y);
+     };
+     graphShape.lineTo(points[0].x, points[0].y);
+     var graphMesh = extrudeShape(graphShape, beamDetails.width / 2);
+     graphMesh.geometry.applyMatrix(new THREE.Matrix4().makeTranslation(0, -beamDetails.height,
+     -beamDetails.width / 4));
+     graphMesh.material = new THREE.MeshLambertMaterial({transparent: true, opacity: 0.3});
+     beamHolder.add(graphMesh);
+     */
+
+    //makes a line graph
+    var material = new THREE.LineBasicMaterial({color: lineColor});
+    var geometry = new THREE.Geometry();
+
+    for (var i = 0; i < points.length; i++) {
+        var vec3 = new THREE.Vector3(-points[i].x, points[i].y, 0);
+        geometry.vertices.push(vec3);
+    }
+
+    var line = new THREE.Line( geometry, material );
+    _this.beamHolder.add(line);
 }
 // </editor-fold>
 function extrudeShape (shape, amount) {

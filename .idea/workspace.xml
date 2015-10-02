@@ -24,18 +24,18 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.3636365">
-              <caret line="39" column="22" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="22" />
+            <state vertical-scroll-proportion="-9.393939">
+              <caret line="48" column="45" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Viewer.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Viewer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/Viewer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.275862">
-              <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.44645798">
+              <caret line="114" column="4" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -44,85 +44,117 @@
       <file leaf-file-name="Animator.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Animator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.137931">
-              <caret line="246" column="69" selection-start-line="246" selection-start-column="69" selection-end-line="246" selection-end-column="69" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
               <folding>
-                <element signature="e#1856#2251#0" expanded="false" />
+                <element signature="e#1897#2292#0" expanded="false" />
+                <element signature="n#!!block;n#addRenderer#0;n#!!block;n#Animator#0" expanded="false" />
                 <element signature="n#!!block;n#addLight#0;n#!!block;n#Animator#0" expanded="false" />
-                <element signature="n#!!block;n#addCamera#0;n#!!block;n#Animator#0" expanded="false" />
-                <element signature="e#3923#4352#0" expanded="false" />
-                <element signature="e#4439#4457#0" expanded="false" />
+                <element signature="e#3964#4393#0" expanded="false" />
+                <element signature="e#4480#4498#0" expanded="false" />
                 <element signature="n#!!block;n#animate#0;n#!!block;n#Animator#0" expanded="false" />
-                <element signature="n#!!block;n#render#0;n#!!block;n#Animator#0" expanded="false" />
                 <element signature="n#!!block;n#spritesLookAt#0;n#!!block;n#Animator#0" expanded="false" />
-                <element signature="n#!!block;n#resetCameraZoom#0;n#!!block;n#Animator#0" expanded="false" />
-                <element signature="e#9260#9981#0" expanded="false" />
+                <element signature="n#!!block;n#updateGizmoCamera#0;n#!!block;n#Animator#0" expanded="false" />
                 <element signature="n#!!block;n#onMouseMove#0;n#!!block;n#Animator#0" expanded="false" />
-                <element signature="n#!!block;n#setBeamLength#0;n#!!block;n#Animator#0" expanded="false" />
+                <element signature="n#!!block;n#onDoubleClick#0;n#!!block;n#Animator#0" expanded="false" />
                 <element signature="n#!!block;n#detectCTRLkey#0;n#!!block;n#Animator#0" expanded="false" />
                 <element signature="n#!!block;n#detectMouseMoveDirection#0;n#!!block;n#Animator#0" expanded="false" />
                 <element signature="n#!!block;n#updateMousePos#0;n#!!block;n#Animator#0" expanded="false" />
-                <element signature="n#!!block;n#moveLightWithCamera#0;n#!!block;n#Animator#0" expanded="false" />
-                <element signature="n#!!block;n#manageMouseZoom#0;n#!!block;n#Animator#0" expanded="false" />
-                <element signature="e#18011#19255#0" expanded="false" />
+                <element signature="n#!!block;n#resetGizmoEmissive#0;n#!!block;n#Animator#0" expanded="false" />
+                <element signature="n#!!block;n#moveGizmo#0;n#!!block;n#Animator#0" expanded="false" />
+                <element signature="e#16562#17806#0" expanded="false" />
+                <element signature="n#!!block;n#checkOutOfBounds#0;n#!!block;n#Animator#0" expanded="false" />
+                <element signature="e#18146#18688#0" expanded="false" />
+                <element signature="n#!!block;n#updateNode#0;n#!!block;n#Animator#0" expanded="false" />
+                <element signature="n#!!block;n#updateSupport#0;n#!!block;n#Animator#0" expanded="false" />
+                <element signature="e#19708#21110#0" expanded="false" />
                 <element signature="n#!!block;n#manageDistanceGizmoOrder#0;n#!!block;n#Animator#0" expanded="false" />
                 <element signature="n#!!block;n#manageArrowVisibility#0;n#!!block;n#Animator#0" expanded="false" />
                 <element signature="n#!!block;n#interpolateVector2#0;n#!!block;n#Animator#0" expanded="false" />
                 <element signature="n#!!block;n#controlsState#0;n#!!block;n#Animator#0" expanded="false" />
-                <element signature="e#25011#25042#0" expanded="false" />
-                <element signature="e#25063#25487#0" expanded="false" />
+                <element signature="e#23730#24160#0" expanded="false" />
                 <element signature="n#!!block;n#checkArrayExtremes#0;n#!!block;n#Animator#0" expanded="false" />
                 <element signature="n#!!block;n#checkState#0;n#!!block;n#Animator#0" expanded="false" />
                 <element signature="n#!!block;n#Action#0;n#!!block;n#Animator#0" expanded="false" />
                 <element signature="n#!!block;n#setPosAction#0;n#!!block;n#Animator#0" expanded="false" />
                 <element signature="n#!!block;n#setRotAction#0;n#!!block;n#Animator#0" expanded="false" />
+                <element signature="e#26153#26554#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Loader.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Loader.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Loader.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58131486">
-              <caret line="547" column="64" selection-start-line="547" selection-start-column="38" selection-end-line="547" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
               <folding>
+                <element signature="n#!!block;n#parseXMLFile#0;n#!!block;n#Loader#0" expanded="false" />
                 <element signature="n#!!block;n#getElementsByTagName#0;n#!!block;n#Loader#0" expanded="false" />
                 <element signature="n#!!block;n#htmlCollectionToArray#0;n#!!block;n#Loader#0" expanded="false" />
-                <element signature="e#2592#3949#0" expanded="false" />
+                <element signature="n#!!block;n#getNodeByID#0;n#!!block;n#Loader#0" expanded="false" />
+                <element signature="e#2630#3987#0" expanded="false" />
                 <element signature="n#!!block;n#getBarByID#0;n#!!block;n#Loader#0" expanded="false" />
-                <element signature="e#4199#4380#0" expanded="false" />
-                <element signature="e#4739#4782#0" expanded="false" />
+                <element signature="e#4237#4418#0" expanded="false" />
                 <element signature="n#!!block;n#getBeamRequest#0;n#!!block;n#Loader#0" expanded="false" />
+                <element signature="n#!!block;n#getLoadCases#0;n#!!block;n#Loader#0" expanded="false" />
                 <element signature="n#!!block;n#getLoadPoints#0;n#!!block;n#Loader#0" expanded="false" />
                 <element signature="n#!!block;n#extractSupports#0;n#!!block;n#Loader#0" expanded="false" />
                 <element signature="n#!!block;n#getBars#0;n#!!block;n#Loader#0" expanded="false" />
-                <element signature="e#9780#9815#0" expanded="false" />
+                <element signature="e#9104#10066#0" expanded="false" />
                 <element signature="n#!!block;n#makeSprite#0;n#!!block;n#Loader#0" expanded="false" />
                 <element signature="n#!!block;n#makeSpriteTexture#0;n#!!block;n#Loader#0" expanded="false" />
-                <element signature="e#11353#11454#0" expanded="false" />
+                <element signature="e#11662#11763#0" expanded="false" />
                 <element signature="n#!!block;n#scaleSpritePlane#0;n#!!block;n#Loader#0" expanded="false" />
                 <element signature="n#!!block;n#makeGizmo#0;n#!!block;n#Loader#0" expanded="false" />
+                <element signature="n#!!block;n#makeUniformForce#0;n#!!block;n#Loader#0" expanded="false" />
                 <element signature="n#!!block;n#returnLineBelow#0;n#!!block;n#Loader#0" expanded="false" />
                 <element signature="n#!!block;n#makeDistanceLine#0;n#!!block;n#Loader#0" expanded="false" />
-                <element signature="e#30107#30143#0" expanded="false" />
-                <element signature="e#30197#30800#0" expanded="false" />
-                <element signature="e#30859#33111#0" expanded="false" />
-                <element signature="e#35793#36157#0" expanded="false" />
-                <element signature="n#!!block;n#makeSupport#0;n#!!block;n#Loader#0" expanded="false" />
+                <element signature="n#!!block;n#makeAxisPlane#0;n#!!block;n#Loader#0" expanded="false" />
+                <element signature="e#27521#27755#0" expanded="false" />
+                <element signature="e#27801#28753#0" expanded="false" />
+                <element signature="e#28790#30344#0" expanded="false" />
+                <element signature="e#30455#31057#0" expanded="false" />
+                <element signature="e#31116#33404#0" expanded="false" />
+                <element signature="e#33499#36048#0" expanded="false" />
                 <element signature="n#!!block;n#addNode#0;n#!!block;n#Loader#0" expanded="false" />
+                <element signature="e#38150#38514#0" expanded="false" />
+                <element signature="e#38549#40115#0" expanded="false" />
+                <element signature="e#40148#40359#0" expanded="false" />
                 <element signature="n#!!block;n#makeFixedSupport#0;n#!!block;n#Loader#0" expanded="false" />
-                <element signature="e#38488#40378#0" expanded="false" />
+                <element signature="e#41862#43752#0" expanded="false" />
+                <element signature="n#!!block;n#checkOutOfBounds#0;n#!!block;n#Loader#0" expanded="false" />
                 <element signature="n#!!block;n#sortSupports#0;n#!!block;n#Loader#0" expanded="false" />
-                <element signature="e#40790#41499#0" expanded="false" />
-                <element signature="n#!!block;n#manageBeamRotation#0;n#!!block;n#Loader#0" expanded="false" />
+                <element signature="e#44164#44873#0" expanded="false" />
                 <element signature="n#!!block;n#manageBeamPositionScale#0;n#!!block;n#Loader#0" expanded="false" />
                 <element signature="n#!!block;n#addBeamDetails#0;n#!!block;n#Loader#0" expanded="false" />
-                <element signature="n#!!block;n#loadObject#0;n#!!block;n#Loader#0" expanded="false" />
                 <element signature="n#!!block;n#addToScene#0;n#!!block;n#Loader#0" expanded="false" />
                 <element signature="n#!!block;n#interpolateVector2#0;n#!!block;n#Loader#0" expanded="false" />
                 <element signature="n#!!block;n#makeLoadPoint#0;n#!!block;n#Loader#0" expanded="false" />
+                <element signature="e#53190#54210#0" expanded="false" />
                 <element signature="n#!!block;n#extrudeShape#0;n#!!block;n#Loader#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XmlGenerator.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/XmlGenerator.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="299" column="5" selection-start-line="299" selection-start-column="5" selection-end-line="299" selection-end-column="5" />
+              <folding>
+                <element signature="e#124#1254#0" expanded="false" />
+                <element signature="n#!!block;n#saveXML#0;n#!!block;n#XmlGenerator#0" expanded="false" />
+                <element signature="n#!!block;n#returnNodesString#0;n#!!block;n#XmlGenerator#0" expanded="false" />
+                <element signature="n#!!block;n#returnBarsString#0;n#!!block;n#XmlGenerator#0" expanded="false" />
+                <element signature="n#!!block;n#returnMaterialsString#0;n#!!block;n#XmlGenerator#0" expanded="false" />
+                <element signature="n#!!block;n#returnSectionsString#0;n#!!block;n#XmlGenerator#0" expanded="false" />
+                <element signature="n#!!block;n#returnSupportsString#0;n#!!block;n#XmlGenerator#0" expanded="false" />
+                <element signature="n#!!block;n#returnLoadsString#0;n#!!block;n#XmlGenerator#0" expanded="false" />
+                <element signature="n#!!block;n#returnIndividualPointString#0;n#!!block;n#XmlGenerator#0" expanded="false" />
+                <element signature="n#!!block;n#checkMultiBarForce#0;n#!!block;n#XmlGenerator#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -144,10 +176,12 @@
         <option value="$PROJECT_DIR$/js/viewer.js" />
         <option value="$PROJECT_DIR$/js/Animatior.js" />
         <option value="$PROJECT_DIR$/js/main.js" />
-        <option value="$PROJECT_DIR$/js/Viewer.js" />
+        <option value="$PROJECT_DIR$/js/xmlGenerator.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/Animator.js" />
+        <option value="$PROJECT_DIR$/js/XmlGenerator.js" />
         <option value="$PROJECT_DIR$/js/Loader.js" />
+        <option value="$PROJECT_DIR$/js/Animator.js" />
+        <option value="$PROJECT_DIR$/js/Viewer.js" />
       </list>
     </option>
   </component>
@@ -187,7 +221,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -236,7 +270,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -300,11 +334,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16617863" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -334,11 +368,121 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="29" />
+      <option name="time" value="40" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="22" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Viewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Animator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="246" column="69" selection-start-line="246" selection-start-column="69" selection-end-line="246" selection-end-column="69" />
+          <folding>
+            <element signature="e#1897#2292#0" expanded="false" />
+            <element signature="n#!!block;n#addRenderer#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#addLight#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#3964#4393#0" expanded="false" />
+            <element signature="e#4480#4498#0" expanded="false" />
+            <element signature="n#!!block;n#animate#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#spritesLookAt#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#updateGizmoCamera#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#onMouseMove#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#onDoubleClick#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#detectCTRLkey#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#detectMouseMoveDirection#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#updateMousePos#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#resetGizmoEmissive#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#moveGizmo#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#16562#17806#0" expanded="false" />
+            <element signature="n#!!block;n#checkOutOfBounds#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#18146#18688#0" expanded="false" />
+            <element signature="n#!!block;n#updateNode#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#updateSupport#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#19708#21110#0" expanded="false" />
+            <element signature="n#!!block;n#manageDistanceGizmoOrder#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#manageArrowVisibility#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#interpolateVector2#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#controlsState#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#23730#24160#0" expanded="false" />
+            <element signature="n#!!block;n#checkArrayExtremes#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#checkState#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#Action#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#setPosAction#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#setRotAction#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#26153#26554#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Loader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!block;n#parseXMLFile#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#getElementsByTagName#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#htmlCollectionToArray#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#getNodeByID#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#2630#3987#0" expanded="false" />
+            <element signature="n#!!block;n#getBarByID#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#4237#4418#0" expanded="false" />
+            <element signature="n#!!block;n#getBeamRequest#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#getLoadCases#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#getLoadPoints#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#extractSupports#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#getBars#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#9104#10066#0" expanded="false" />
+            <element signature="n#!!block;n#makeSprite#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#makeSpriteTexture#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#11662#11763#0" expanded="false" />
+            <element signature="n#!!block;n#scaleSpritePlane#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#makeGizmo#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#makeUniformForce#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#returnLineBelow#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#makeDistanceLine#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#makeAxisPlane#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#27521#27755#0" expanded="false" />
+            <element signature="e#27801#28753#0" expanded="false" />
+            <element signature="e#28790#30344#0" expanded="false" />
+            <element signature="e#30455#31057#0" expanded="false" />
+            <element signature="e#31116#33404#0" expanded="false" />
+            <element signature="e#33499#36048#0" expanded="false" />
+            <element signature="n#!!block;n#addNode#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#38150#38514#0" expanded="false" />
+            <element signature="e#38549#40115#0" expanded="false" />
+            <element signature="e#40148#40359#0" expanded="false" />
+            <element signature="n#!!block;n#makeFixedSupport#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#41862#43752#0" expanded="false" />
+            <element signature="n#!!block;n#checkOutOfBounds#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#sortSupports#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#44164#44873#0" expanded="false" />
+            <element signature="n#!!block;n#manageBeamPositionScale#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#addBeamDetails#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#addToScene#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#interpolateVector2#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#makeLoadPoint#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#53190#54210#0" expanded="false" />
+            <element signature="n#!!block;n#extrudeShape#0;n#!!block;n#Loader#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -360,35 +504,38 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1856#2251#0" expanded="false" />
+            <element signature="e#1897#2292#0" expanded="false" />
+            <element signature="n#!!block;n#addRenderer#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#addLight#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#addCamera#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="e#3923#4352#0" expanded="false" />
-            <element signature="e#4439#4457#0" expanded="false" />
+            <element signature="e#3964#4393#0" expanded="false" />
+            <element signature="e#4480#4498#0" expanded="false" />
             <element signature="n#!!block;n#animate#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#render#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#spritesLookAt#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#resetCameraZoom#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="e#9260#9981#0" expanded="false" />
+            <element signature="n#!!block;n#updateGizmoCamera#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#onMouseMove#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#setBeamLength#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#onDoubleClick#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#detectCTRLkey#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#detectMouseMoveDirection#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#updateMousePos#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#moveLightWithCamera#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#manageMouseZoom#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="e#18011#19255#0" expanded="false" />
+            <element signature="n#!!block;n#resetGizmoEmissive#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#moveGizmo#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#16562#17806#0" expanded="false" />
+            <element signature="n#!!block;n#checkOutOfBounds#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#18146#18688#0" expanded="false" />
+            <element signature="n#!!block;n#updateNode#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#updateSupport#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#19708#21110#0" expanded="false" />
             <element signature="n#!!block;n#manageDistanceGizmoOrder#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#manageArrowVisibility#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#interpolateVector2#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#controlsState#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="e#25011#25042#0" expanded="false" />
-            <element signature="e#25063#25487#0" expanded="false" />
+            <element signature="e#23730#24160#0" expanded="false" />
             <element signature="n#!!block;n#checkArrayExtremes#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#checkState#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#Action#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#setPosAction#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#setRotAction#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#26153#26554#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -398,41 +545,49 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="296" column="9" selection-start-line="296" selection-start-column="9" selection-end-line="296" selection-end-column="9" />
           <folding>
+            <element signature="n#!!block;n#parseXMLFile#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#getElementsByTagName#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#htmlCollectionToArray#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#2592#3949#0" expanded="false" />
+            <element signature="n#!!block;n#getNodeByID#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#2630#3987#0" expanded="false" />
             <element signature="n#!!block;n#getBarByID#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#4199#4380#0" expanded="false" />
-            <element signature="e#4739#4782#0" expanded="false" />
+            <element signature="e#4237#4418#0" expanded="false" />
             <element signature="n#!!block;n#getBeamRequest#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#getLoadCases#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#getLoadPoints#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#extractSupports#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#getBars#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#9780#9815#0" expanded="false" />
+            <element signature="e#9104#10066#0" expanded="false" />
             <element signature="n#!!block;n#makeSprite#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#makeSpriteTexture#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#11353#11454#0" expanded="false" />
+            <element signature="e#11662#11763#0" expanded="false" />
             <element signature="n#!!block;n#scaleSpritePlane#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#makeGizmo#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#makeUniformForce#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#returnLineBelow#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#makeDistanceLine#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#30107#30143#0" expanded="false" />
-            <element signature="e#30197#30800#0" expanded="false" />
-            <element signature="e#30859#33111#0" expanded="false" />
-            <element signature="e#35793#36157#0" expanded="false" />
-            <element signature="n#!!block;n#makeSupport#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#makeAxisPlane#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#27521#27755#0" expanded="false" />
+            <element signature="e#27801#28753#0" expanded="false" />
+            <element signature="e#28790#30344#0" expanded="false" />
+            <element signature="e#30455#31057#0" expanded="false" />
+            <element signature="e#31116#33404#0" expanded="false" />
+            <element signature="e#33499#36048#0" expanded="false" />
             <element signature="n#!!block;n#addNode#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#38150#38514#0" expanded="false" />
+            <element signature="e#38549#40115#0" expanded="false" />
+            <element signature="e#40148#40359#0" expanded="false" />
             <element signature="n#!!block;n#makeFixedSupport#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#38488#40378#0" expanded="false" />
+            <element signature="e#41862#43752#0" expanded="false" />
+            <element signature="n#!!block;n#checkOutOfBounds#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#sortSupports#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#40790#41499#0" expanded="false" />
-            <element signature="n#!!block;n#manageBeamRotation#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#44164#44873#0" expanded="false" />
             <element signature="n#!!block;n#manageBeamPositionScale#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#addBeamDetails#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="n#!!block;n#loadObject#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#addToScene#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#interpolateVector2#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#makeLoadPoint#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#53190#54210#0" expanded="false" />
             <element signature="n#!!block;n#extrudeShape#0;n#!!block;n#Loader#0" expanded="false" />
           </folding>
         </state>
@@ -459,35 +614,38 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="144" column="69" selection-start-line="144" selection-start-column="69" selection-end-line="144" selection-end-column="69" />
           <folding>
-            <element signature="e#1856#2251#0" expanded="false" />
+            <element signature="e#1897#2292#0" expanded="false" />
+            <element signature="n#!!block;n#addRenderer#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#addLight#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#addCamera#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="e#3923#4352#0" expanded="false" />
-            <element signature="e#4439#4457#0" expanded="false" />
+            <element signature="e#3964#4393#0" expanded="false" />
+            <element signature="e#4480#4498#0" expanded="false" />
             <element signature="n#!!block;n#animate#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#render#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#spritesLookAt#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#resetCameraZoom#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="e#9260#9981#0" expanded="false" />
+            <element signature="n#!!block;n#updateGizmoCamera#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#onMouseMove#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#setBeamLength#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#onDoubleClick#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#detectCTRLkey#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#detectMouseMoveDirection#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#updateMousePos#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#moveLightWithCamera#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#manageMouseZoom#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="e#18011#19255#0" expanded="false" />
+            <element signature="n#!!block;n#resetGizmoEmissive#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#moveGizmo#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#16562#17806#0" expanded="false" />
+            <element signature="n#!!block;n#checkOutOfBounds#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#18146#18688#0" expanded="false" />
+            <element signature="n#!!block;n#updateNode#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#updateSupport#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#19708#21110#0" expanded="false" />
             <element signature="n#!!block;n#manageDistanceGizmoOrder#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#manageArrowVisibility#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#interpolateVector2#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#controlsState#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="e#25011#25042#0" expanded="false" />
-            <element signature="e#25063#25487#0" expanded="false" />
+            <element signature="e#23730#24160#0" expanded="false" />
             <element signature="n#!!block;n#checkArrayExtremes#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#checkState#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#Action#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#setPosAction#0;n#!!block;n#Animator#0" expanded="false" />
             <element signature="n#!!block;n#setRotAction#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#26153#26554#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -497,41 +655,49 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="905" column="35" selection-start-line="905" selection-start-column="35" selection-end-line="905" selection-end-column="35" />
           <folding>
+            <element signature="n#!!block;n#parseXMLFile#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#getElementsByTagName#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#htmlCollectionToArray#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#2592#3949#0" expanded="false" />
+            <element signature="n#!!block;n#getNodeByID#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#2630#3987#0" expanded="false" />
             <element signature="n#!!block;n#getBarByID#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#4199#4380#0" expanded="false" />
-            <element signature="e#4739#4782#0" expanded="false" />
+            <element signature="e#4237#4418#0" expanded="false" />
             <element signature="n#!!block;n#getBeamRequest#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#getLoadCases#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#getLoadPoints#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#extractSupports#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#getBars#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#9780#9815#0" expanded="false" />
+            <element signature="e#9104#10066#0" expanded="false" />
             <element signature="n#!!block;n#makeSprite#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#makeSpriteTexture#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#11353#11454#0" expanded="false" />
+            <element signature="e#11662#11763#0" expanded="false" />
             <element signature="n#!!block;n#scaleSpritePlane#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#makeGizmo#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#makeUniformForce#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#returnLineBelow#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#makeDistanceLine#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#30107#30143#0" expanded="false" />
-            <element signature="e#30197#30800#0" expanded="false" />
-            <element signature="e#30859#33111#0" expanded="false" />
-            <element signature="e#35793#36157#0" expanded="false" />
-            <element signature="n#!!block;n#makeSupport#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#makeAxisPlane#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#27521#27755#0" expanded="false" />
+            <element signature="e#27801#28753#0" expanded="false" />
+            <element signature="e#28790#30344#0" expanded="false" />
+            <element signature="e#30455#31057#0" expanded="false" />
+            <element signature="e#31116#33404#0" expanded="false" />
+            <element signature="e#33499#36048#0" expanded="false" />
             <element signature="n#!!block;n#addNode#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#38150#38514#0" expanded="false" />
+            <element signature="e#38549#40115#0" expanded="false" />
+            <element signature="e#40148#40359#0" expanded="false" />
             <element signature="n#!!block;n#makeFixedSupport#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#38488#40378#0" expanded="false" />
+            <element signature="e#41862#43752#0" expanded="false" />
+            <element signature="n#!!block;n#checkOutOfBounds#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#sortSupports#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#40790#41499#0" expanded="false" />
-            <element signature="n#!!block;n#manageBeamRotation#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#44164#44873#0" expanded="false" />
             <element signature="n#!!block;n#manageBeamPositionScale#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#addBeamDetails#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="n#!!block;n#loadObject#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#addToScene#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#interpolateVector2#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#makeLoadPoint#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#53190#54210#0" expanded="false" />
             <element signature="n#!!block;n#extrudeShape#0;n#!!block;n#Loader#0" expanded="false" />
           </folding>
         </state>
@@ -557,100 +723,130 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.3636365">
-          <caret line="39" column="22" selection-start-line="39" selection-start-column="20" selection-end-line="39" selection-end-column="22" />
+        <state vertical-scroll-proportion="-9.393939">
+          <caret line="48" column="45" selection-start-line="48" selection-start-column="45" selection-end-line="48" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Viewer.js">
+    <entry file="file://$PROJECT_DIR$/js/XmlGenerator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.275862">
-          <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Animator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.137931">
-          <caret line="246" column="69" selection-start-line="246" selection-start-column="69" selection-end-line="246" selection-end-column="69" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="299" column="5" selection-start-line="299" selection-start-column="5" selection-end-line="299" selection-end-column="5" />
           <folding>
-            <element signature="e#1856#2251#0" expanded="false" />
-            <element signature="n#!!block;n#addLight#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#addCamera#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="e#3923#4352#0" expanded="false" />
-            <element signature="e#4439#4457#0" expanded="false" />
-            <element signature="n#!!block;n#animate#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#render#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#spritesLookAt#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#resetCameraZoom#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="e#9260#9981#0" expanded="false" />
-            <element signature="n#!!block;n#onMouseMove#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#setBeamLength#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#detectCTRLkey#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#detectMouseMoveDirection#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#updateMousePos#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#moveLightWithCamera#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#manageMouseZoom#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="e#18011#19255#0" expanded="false" />
-            <element signature="n#!!block;n#manageDistanceGizmoOrder#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#manageArrowVisibility#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#interpolateVector2#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#controlsState#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="e#25011#25042#0" expanded="false" />
-            <element signature="e#25063#25487#0" expanded="false" />
-            <element signature="n#!!block;n#checkArrayExtremes#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#checkState#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#Action#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#setPosAction#0;n#!!block;n#Animator#0" expanded="false" />
-            <element signature="n#!!block;n#setRotAction#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#124#1254#0" expanded="false" />
+            <element signature="n#!!block;n#saveXML#0;n#!!block;n#XmlGenerator#0" expanded="false" />
+            <element signature="n#!!block;n#returnNodesString#0;n#!!block;n#XmlGenerator#0" expanded="false" />
+            <element signature="n#!!block;n#returnBarsString#0;n#!!block;n#XmlGenerator#0" expanded="false" />
+            <element signature="n#!!block;n#returnMaterialsString#0;n#!!block;n#XmlGenerator#0" expanded="false" />
+            <element signature="n#!!block;n#returnSectionsString#0;n#!!block;n#XmlGenerator#0" expanded="false" />
+            <element signature="n#!!block;n#returnSupportsString#0;n#!!block;n#XmlGenerator#0" expanded="false" />
+            <element signature="n#!!block;n#returnLoadsString#0;n#!!block;n#XmlGenerator#0" expanded="false" />
+            <element signature="n#!!block;n#returnIndividualPointString#0;n#!!block;n#XmlGenerator#0" expanded="false" />
+            <element signature="n#!!block;n#checkMultiBarForce#0;n#!!block;n#XmlGenerator#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Loader.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58131486">
-          <caret line="547" column="64" selection-start-line="547" selection-start-column="38" selection-end-line="547" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
           <folding>
+            <element signature="n#!!block;n#parseXMLFile#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#getElementsByTagName#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#htmlCollectionToArray#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#2592#3949#0" expanded="false" />
+            <element signature="n#!!block;n#getNodeByID#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#2630#3987#0" expanded="false" />
             <element signature="n#!!block;n#getBarByID#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#4199#4380#0" expanded="false" />
-            <element signature="e#4739#4782#0" expanded="false" />
+            <element signature="e#4237#4418#0" expanded="false" />
             <element signature="n#!!block;n#getBeamRequest#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#getLoadCases#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#getLoadPoints#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#extractSupports#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#getBars#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#9780#9815#0" expanded="false" />
+            <element signature="e#9104#10066#0" expanded="false" />
             <element signature="n#!!block;n#makeSprite#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#makeSpriteTexture#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#11353#11454#0" expanded="false" />
+            <element signature="e#11662#11763#0" expanded="false" />
             <element signature="n#!!block;n#scaleSpritePlane#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#makeGizmo#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#makeUniformForce#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#returnLineBelow#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#makeDistanceLine#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#30107#30143#0" expanded="false" />
-            <element signature="e#30197#30800#0" expanded="false" />
-            <element signature="e#30859#33111#0" expanded="false" />
-            <element signature="e#35793#36157#0" expanded="false" />
-            <element signature="n#!!block;n#makeSupport#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="n#!!block;n#makeAxisPlane#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#27521#27755#0" expanded="false" />
+            <element signature="e#27801#28753#0" expanded="false" />
+            <element signature="e#28790#30344#0" expanded="false" />
+            <element signature="e#30455#31057#0" expanded="false" />
+            <element signature="e#31116#33404#0" expanded="false" />
+            <element signature="e#33499#36048#0" expanded="false" />
             <element signature="n#!!block;n#addNode#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#38150#38514#0" expanded="false" />
+            <element signature="e#38549#40115#0" expanded="false" />
+            <element signature="e#40148#40359#0" expanded="false" />
             <element signature="n#!!block;n#makeFixedSupport#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#38488#40378#0" expanded="false" />
+            <element signature="e#41862#43752#0" expanded="false" />
+            <element signature="n#!!block;n#checkOutOfBounds#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#sortSupports#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="e#40790#41499#0" expanded="false" />
-            <element signature="n#!!block;n#manageBeamRotation#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#44164#44873#0" expanded="false" />
             <element signature="n#!!block;n#manageBeamPositionScale#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#addBeamDetails#0;n#!!block;n#Loader#0" expanded="false" />
-            <element signature="n#!!block;n#loadObject#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#addToScene#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#interpolateVector2#0;n#!!block;n#Loader#0" expanded="false" />
             <element signature="n#!!block;n#makeLoadPoint#0;n#!!block;n#Loader#0" expanded="false" />
+            <element signature="e#53190#54210#0" expanded="false" />
             <element signature="n#!!block;n#extrudeShape#0;n#!!block;n#Loader#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Animator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+          <folding>
+            <element signature="e#1897#2292#0" expanded="false" />
+            <element signature="n#!!block;n#addRenderer#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#addLight#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#3964#4393#0" expanded="false" />
+            <element signature="e#4480#4498#0" expanded="false" />
+            <element signature="n#!!block;n#animate#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#spritesLookAt#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#updateGizmoCamera#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#onMouseMove#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#onDoubleClick#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#detectCTRLkey#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#detectMouseMoveDirection#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#updateMousePos#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#resetGizmoEmissive#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#moveGizmo#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#16562#17806#0" expanded="false" />
+            <element signature="n#!!block;n#checkOutOfBounds#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#18146#18688#0" expanded="false" />
+            <element signature="n#!!block;n#updateNode#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#updateSupport#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#19708#21110#0" expanded="false" />
+            <element signature="n#!!block;n#manageDistanceGizmoOrder#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#manageArrowVisibility#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#interpolateVector2#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#controlsState#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#23730#24160#0" expanded="false" />
+            <element signature="n#!!block;n#checkArrayExtremes#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#checkState#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#Action#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#setPosAction#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="n#!!block;n#setRotAction#0;n#!!block;n#Animator#0" expanded="false" />
+            <element signature="e#26153#26554#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Viewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44645798">
+          <caret line="114" column="4" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
