@@ -1,19 +1,8 @@
-function Loader(fileName, beamHolder){
-// <editor-fold desc="private variables">
-    var _this = this;
-    var veticalLineExtraY = 0.5;
-    var lineHeight = 5;
-    var lineColor = 0x777777, arrowYcolor = 0x00ff00, arrowZcolor = 0xff0000;
-    var distanceBetweenUniformArrows = 0.21;
-    var supportSide = 50;
-    var supportMeshColor = { r: 0.2, g: 0.2, b: 0.2 };
-    var fs_thickness = .3, fs_height = 8, fs_width = 3;
-    var newUniformForceLength = 400;
-// </editor-fold>
-
+function Loader(beamHolder){
 // <editor-fold desc="public variables">
+    var _this = this;
     this.beamHolder = beamHolder;
-    this.xmlparsed = parseXMLFile("XML/"+fileName+".xml");
+    this.xmlparsed = parseXMLstring(solver.modelAsXml());
     this.viewerBeamRequest = getBeamRequest();
     this.viewerNodes = getElementsByTagName("nodes");
     this.viewerLoads = getElementsByTagName("loads");
@@ -46,6 +35,18 @@ function Loader(fileName, beamHolder){
     };
 // </editor-fold>
 
+
+// <editor-fold desc="private variables">
+    var beamLineHeight = 5;
+    var lineColor = 0x777777, arrowYcolor = 0x00ff00, arrowZcolor = 0xff0000;
+    var distanceBetweenUniformArrows = 0.21;
+    var supportMeshSide = 50;
+    var supportMeshColor = { r: 0.2, g: 0.2, b: 0.2 };
+    //fixed support
+    var fs_thickness = .3, fs_height = 8, fs_width = 3;
+    var newUniformForceLength = 400;
+// </editor-fold>
+
 // <editor-fold desc="general preloading">
     function parseXMLFile (file) {
         var xmlhttp = new XMLHttpRequest();
@@ -54,9 +55,12 @@ function Loader(fileName, beamHolder){
         return xmlhttp.responseXML;
     }
 
+    function parseXMLstring (string) {
+        return new DOMParser().parseFromString(string,"text/xml");
+    }
+
     function getElementsByTagName(tagName){
-        return htmlCollectionToArray(_this.viewerBeamRequest.
-            getElementsByTagName(tagName)[0].childNodes);
+        return htmlCollectionToArray(_this.viewerBeamRequest.getElementsByTagName(tagName)[0].childNodes);
     }
 
     function htmlCollectionToArray (collection) {
@@ -184,8 +188,7 @@ function Loader(fileName, beamHolder){
         viewerLoadPoints[viewerLoadPoints.length - 1].point1 = viewerLoads[i].childNodes[j].childNodes[k];
         viewerLoadPoints[viewerLoadPoints.length - 1].barId = viewerLoads[i].childNodes[j].getAttribute("barId");
         break;
-        }
-        }
+        }}
         return viewerLoadPoints;
     }
 
@@ -199,12 +202,10 @@ function Loader(fileName, beamHolder){
                 var sup = supportsArray[j];
                 if(sup.getAttribute("name") == supName)
                 {
-                    var fixed = undefined;
-                    //TODO: simplify
-                    if (sup.getAttribute("ry") == "true" && sup.getAttribute("rz") == "true")
-                        fixed = true; else fixed = false;
+                    var fixed = (sup.getAttribute("ry") == "true" && sup.getAttribute("rz") == "true");
 
-                    returnSupports.push({support: sup,
+                    returnSupports.push({
+                        support: sup,
                         xPos: Number(viewerNodes[i].getAttribute("x")),
                         fixed: fixed,
                         node: viewerNodes[i]});
@@ -217,9 +218,7 @@ function Loader(fileName, beamHolder){
 
     function getBars (viewerBeamRequest) {
         var bars = htmlCollectionToArray(viewerBeamRequest.getElementsByTagName("bars")[0].childNodes);
-        /*
-         -loop bars and add start and end positions for meshes
-         */
+        //-loop bars and add start and end positions for meshes
         for (var i = bars.length - 1; i >= 0; i--) {
             var startNode = getNodeByID(Number(bars[i].getAttribute("startNodeId")));
             var endNode = getNodeByID(Number(bars[i].getAttribute("endNodeId")));
@@ -253,8 +252,7 @@ function Loader(fileName, beamHolder){
             first: function () {
                 for (var i = 0; i < _this.viewerNodes.length; i++) {
                     var curX = Number(_this.viewerNodes[i].getAttribute("x"));
-                    if(curX < smallestX)
-                    {
+                    if(curX < smallestX){
                         smallestX = curX;
                         firstNode = _this.viewerNodes[i];
                     }
@@ -523,7 +521,7 @@ function makeUniformForce (start, end, barID, obj) {
         lineLength = (end - start) / _this.toMilimeter;
     }
 
-    var lineHeight = 3.5;
+    var beamLineHeight = 3.5;
     var geom = new THREE.Geometry();
     var oneGeom = makeGizmo("arrowDown", undefined, 0, true).geometry;
     var mesh = new THREE.Mesh(geom, new THREE.MeshLambertMaterial({color: 0xff0000}));
@@ -532,7 +530,7 @@ function makeUniformForce (start, end, barID, obj) {
         var offset = 0;
         if(i > 0) offset = i + 1;
         oneGeom.applyMatrix(new THREE.Matrix4().makeTranslation(
-            -( (offset * distanceBetweenUniformArrows ) / (i + 1) ), 0, 0));
+            -((offset * distanceBetweenUniformArrows ) / (i + 1)), 0, 0));
         mesh.updateMatrix();
         geom.merge( oneGeom, mesh.matrix );
     }
@@ -556,23 +554,24 @@ function makeUniformForce (start, end, barID, obj) {
     mesh.add(returnLineBelow(mesh));
     mesh.position.setX(-(start / _this.toMilimeter));
     var sprite = makeSprite((Math.ceil(lineLength * _this.toMilimeter)).toString());
-    sprite.position.set(-lineLength / 2, lineHeight, 0);
+    sprite.position.set(-lineLength / 2, beamLineHeight, 0);
     sprite.children[0].type = "lengthSprite";
     mesh.add(sprite);
 
     //length line
-    var beamLengthStartV3 = new THREE.Vector3(0, lineHeight, 0);
-    var beamLengthEndV3 = new THREE.Vector3(-lineLength, lineHeight, 0);
+    var beamLengthStartV3 = new THREE.Vector3(0, beamLineHeight, 0);
+    var beamLengthEndV3 = new THREE.Vector3(-lineLength, beamLineHeight, 0);
     var lineVectors = [beamLengthStartV3, beamLengthEndV3];
     var lengthLine = makeDistanceLine(lineVectors, lineColor);
     mesh.add(lengthLine);
 
     //length arrows
     var arrowHeadLeft = makeGizmo("arrowHead");
-    arrowHeadLeft.position.setY(lineHeight);
+    arrowHeadLeft.position.setY(beamLineHeight);
     arrowHeadLeft.rotation.z = Math.PI / 2;
     arrowHeadLeft.material.color.set(lineColor);
     mesh.add(arrowHeadLeft);
+
     //right arrow
     var arrowHeadRight = arrowHeadLeft.clone();
     arrowHeadRight.position.setX(-lineLength);
@@ -580,14 +579,15 @@ function makeUniformForce (start, end, barID, obj) {
     mesh.add(arrowHeadRight);
 
     //vertical line left
-    var beamHeightStartV3Left = new THREE.Vector3(0, lineHeight - 1, 0);
-    var beamHeightEndV3Left = new THREE.Vector3(0, lineHeight, 0);
+    var beamHeightStartV3Left = new THREE.Vector3(0, beamLineHeight - 1, 0);
+    var beamHeightEndV3Left = new THREE.Vector3(0, beamLineHeight, 0);
     lineVectors = [beamHeightStartV3Left, beamHeightEndV3Left];
     var heightBarLeft = makeDistanceLine(lineVectors, lineColor);
     mesh.add(heightBarLeft);
+
     //vertical line right
-    var beamHeightStartV3Right = new THREE.Vector3(-lineLength, lineHeight - 1, 0);
-    var beamHeightEndV3Right = new THREE.Vector3(-lineLength, lineHeight, 0);
+    var beamHeightStartV3Right = new THREE.Vector3(-lineLength, beamLineHeight - 1, 0);
+    var beamHeightEndV3Right = new THREE.Vector3(-lineLength, beamLineHeight, 0);
     lineVectors = [beamHeightStartV3Right, beamHeightEndV3Right];
     var heightBarRight = makeDistanceLine(lineVectors, lineColor);
     mesh.add(heightBarRight);
@@ -646,17 +646,18 @@ function returnLineBelow (holder) {
      -adds both to a THREE.Gyroscope to assist lookAt functionality after
      the gyro's parent has been rotated
      */
+    var verticalLineExtraY = 0.5;
     var lineBegin = new THREE.Vector3(holder.position.x, holder.position.y -
-        _this.beamDetails.height - veticalLineExtraY, holder.position.z);
+        _this.beamDetails.height - verticalLineExtraY, holder.position.z);
     var lineEnd = new THREE.Vector3().copy(lineBegin);
-    lineEnd.y = -lineHeight - _this.beamDetails.height + veticalLineExtraY;
+    lineEnd.y = -beamLineHeight - _this.beamDetails.height + verticalLineExtraY;
 
     var gyro = new THREE.Gyroscope();
     var belowDistanceLine = makeDistanceLine([lineBegin, lineEnd], lineColor);
     gyro.add(belowDistanceLine);
 
     var arrowhead = makeGizmo("arrowHead");
-    arrowhead.position.setY(-lineHeight - _this.beamDetails.height + veticalLineExtraY);
+    arrowhead.position.setY(-beamLineHeight - _this.beamDetails.height + verticalLineExtraY);
     arrowhead.rotation.z = Math.PI / 2;
     arrowhead.material.color.set(lineColor);
     holder.rightArrow = arrowhead;
@@ -712,9 +713,7 @@ this.addSupport = function() {
 };
 
 this.addPointForce = function (my, fy, fz) {
-    /*
-     -called from the UI, adds a point force
-     */
+    // -called from the UI, adds a point force
     var newX = prompt("Force position in mm");
     if(newX == null) return;
 
@@ -806,7 +805,7 @@ this.addUniformForce = function() {
 // <editor-fold desc="manage gizmos"
 this.rotateGizmo = function(gizmo, ccw, doNotRecord) {
     /*
-     -rotates a valid gizmo in 90° incremens
+     -rotates a valid gizmo in 90° increments
      -repositions the arrows below
      -sets a custom color to new reflect axis
      */
@@ -834,8 +833,7 @@ this.rotateGizmoDeg = function(gizmo, rotation, action) {
     else dir = name.slice(0, 2);
     var val = name.slice(dir.length, name.length);
 
-    if(action)
-    {
+    if(action){
         gizmo.rotation.copy(rotation);
         rotation = Math.round(_this.radiansToDegrees(rotation.x));
     }
@@ -884,7 +882,7 @@ this.rotateGizmoDeg = function(gizmo, rotation, action) {
 
     if(action) _this.animatorComponent.addActionProperty(gizmo, {after: _this.copyEuler(gizmo.rotation)});
     if(newText) _this.changeSpriteText(gizmo.aboveSprite.children[0], newText);
-}
+};
 // </editor-fold>
 
 // <editor-fold desc="model loading">
@@ -962,7 +960,7 @@ function makeSupport (xPos, fixed, userSupport, obj) {
 
     var supportShape = new THREE.Shape();
     var extrude = _this.beamDetails.width * 2;
-    var sideMm = supportSide / _this.toMilimeter;
+    var sideMm = supportMeshSide / _this.toMilimeter;
     supportShape.moveTo( -sideMm, -sideMm );
     supportShape.lineTo( 0, sideMm );
     supportShape.lineTo( sideMm, -sideMm );
@@ -1060,26 +1058,23 @@ this.toggleWall = function () {
 
 this.removeGizmo = function() {
     if(!_this.beamDetails.lastSelected /*|| !_this.animatorComponent.selectedGizmo*/) return;
-    var g = _this.beamDetails.lastSelected;
-    var index = _this.gizmos.indexOf(g);
-    _this.gizmos.splice(index, 1);
+    var lastSelected = _this.beamDetails.lastSelected;
+    _this.gizmos.splice(_this.gizmos.indexOf(lastSelected), 1);
 
-    switch(g.gizmoType){
+    switch(lastSelected.gizmoType){
         case "support":
-            var i = _this.supportMeshes.indexOf(g);
-            _this.supportMeshes.splice(i, 1);
+            _this.supportMeshes.splice(_this.supportMeshes.indexOf(lastSelected), 1);
             _this.supportMeshes.sort(sortSupports);
             break;
         case "loadPoint":
         case "linear":
         case "bending":
-            var i = _this.loadMeshes.indexOf(g);
-            _this.loadMeshes.splice(i, 1);
+            _this.loadMeshes.splice(_this.loadMeshes.indexOf(lastSelected), 1);
             break;
     }
 
-    g.belowSprite.parent.remove(g.belowSprite);
-    g.parent.remove(g);
+    lastSelected.belowSprite.parent.remove(lastSelected.belowSprite);
+    lastSelected.parent.remove(lastSelected);
     _this.beamDetails.lastSelected = undefined;
     _this.animatorComponent.manageDistanceSprites(true);
 };
@@ -1101,7 +1096,7 @@ function makeFixedSupport (visible, xPos) {
 
 this.checkSupportProximity = function(x, gizmo) {
     /*
-     -calcualte support gizmo positions and prevent them from passing through each other
+     -calculate support gizmo positions and prevent them from passing through each other
      -check the support gizmo before and after the selected one (if they exist) and see if the
      selected gizmo can move or not.
      */
@@ -1120,17 +1115,13 @@ this.checkSupportProximity = function(x, gizmo) {
         return true;
     }
 
-    /*
-     -gizmo after the selected one
-     */
+    // -gizmo after the selected one
     if (proxToNext()) {
         snapToNext();
         return true;
     }
 
-    /*
-     -gizmo before the selected one
-     */
+    // -gizmo before the selected one
     if (proxToPrev()) {
         snapToPrev();
         return true;
@@ -1138,17 +1129,17 @@ this.checkSupportProximity = function(x, gizmo) {
 
     function proxToNext() {
         if (_this.supportMeshes[index + 1] && x <= _this.supportMeshes[index + 1].position.x +
-            ((supportSide * 2) / _this.toMilimeter)) return true;
+            ((supportMeshSide * 2) / _this.toMilimeter)) return true;
     }
 
     function proxToPrev() {
         if (_this.supportMeshes[index - 1] && x >= _this.supportMeshes[index - 1].position.x -
-            ((supportSide * 2) / _this.toMilimeter)) return true;
+            ((supportMeshSide * 2) / _this.toMilimeter)) return true;
     }
 
     function snapToPrev() {
         var snap = undefined;
-        var prev =  _this.supportMeshes[index - 1].position.x -((supportSide * 2) / _this.toMilimeter);
+        var prev =  _this.supportMeshes[index - 1].position.x -((supportMeshSide * 2) / _this.toMilimeter);
         if(prev > -_this.beamDetails.start * _this.toMeter)
             snap = -_this.beamDetails.start * _this.toMeter;
         else snap = prev;
@@ -1157,7 +1148,7 @@ this.checkSupportProximity = function(x, gizmo) {
 
     function snapToNext() {
         gizmo.position.setX(_this.supportMeshes[index + 1].position.x +
-            ((supportSide * 2) / _this.toMilimeter));
+            ((supportMeshSide * 2) / _this.toMilimeter));
     }
 };
 
@@ -1214,6 +1205,7 @@ function manageBeamPositionScale (mesh, bar, prevBar) {
 }
 
 function addBeamDetails (beamMesh) {
+    var verticalLineExtraY = 0.5;
     var lineAndSpriteHolder = new THREE.Object3D();
     var scale = 0.03, length = _this.beamDetails.length;
     var start = -_this.findBar.first().startX * _this.toMeter;
@@ -1225,13 +1217,13 @@ function addBeamDetails (beamMesh) {
     //line above
     //sprite
     var sprite = makeSprite((length * 100).toString());
-    sprite.position.set(start + (end - start) / 2, lineHeight + 1, 0);
+    sprite.position.set(start + (end - start) / 2, beamLineHeight + 1, 0);
     sprite.children[0].type = "lengthSprite";
     lineAndSpriteHolder.add(sprite);
 
     //length line
-    var beamLengthStartV3 = new THREE.Vector3(start, lineHeight, 0);
-    var beamLengthEndV3 = new THREE.Vector3(end, lineHeight, 0);
+    var beamLengthStartV3 = new THREE.Vector3(start, beamLineHeight, 0);
+    var beamLengthEndV3 = new THREE.Vector3(end, beamLineHeight, 0);
     var lineVectors = [beamLengthStartV3, beamLengthEndV3];
     var lengthLine = makeDistanceLine(lineVectors, lineColor);
     lineAndSpriteHolder.add(lengthLine);
@@ -1239,7 +1231,7 @@ function addBeamDetails (beamMesh) {
     //length arrows
     var arrowHeadLeft = makeGizmo("arrowHead");
     arrowHeadLeft.position.setX(start);
-    arrowHeadLeft.position.setY(lineHeight);
+    arrowHeadLeft.position.setY(beamLineHeight);
     arrowHeadLeft.rotation.z = Math.PI / 2;
     arrowHeadLeft.material.color.set(lineColor);
     lineAndSpriteHolder.add(arrowHeadLeft);
@@ -1251,14 +1243,14 @@ function addBeamDetails (beamMesh) {
 
     //vertical line left
     var beamHeightStartV3Left = new THREE.Vector3(0, 1, 0);
-    var beamHeightEndV3Left = new THREE.Vector3(0, lineHeight, 0);
+    var beamHeightEndV3Left = new THREE.Vector3(0, beamLineHeight, 0);
     lineVectors = [beamHeightStartV3Left, beamHeightEndV3Left];
     var heightBarLeft = makeDistanceLine(lineVectors, lineColor);
     heightBarLeft.position.setX(start);
     lineAndSpriteHolder.add(heightBarLeft);
     //vertical line right
     var beamHeightStartV3Right = new THREE.Vector3(0, 1, 0);
-    var beamHeightEndV3Right = new THREE.Vector3(0, lineHeight, 0);
+    var beamHeightEndV3Right = new THREE.Vector3(0, beamLineHeight, 0);
     lineVectors = [beamHeightStartV3Right, beamHeightEndV3Right];
     var heightBarRight = makeDistanceLine(lineVectors, lineColor);
     heightBarRight.position.setX(end);
@@ -1266,23 +1258,23 @@ function addBeamDetails (beamMesh) {
 
     //line below (clones and repositions line above)
     lengthLine = lengthLine.clone();
-    lengthLine.position.y -= lineHeight * 2 + _this.beamDetails.height - veticalLineExtraY;
+    lengthLine.position.y -= beamLineHeight * 2 + _this.beamDetails.height - verticalLineExtraY;
     lineAndSpriteHolder.add(lengthLine);
 
     arrowHeadLeft = arrowHeadLeft.clone();
-    arrowHeadLeft.position.y = -(lineHeight + _this.beamDetails.height - veticalLineExtraY);
+    arrowHeadLeft.position.y = -(beamLineHeight + _this.beamDetails.height - verticalLineExtraY);
     lineAndSpriteHolder.add(arrowHeadLeft);
 
     arrowHeadRight = arrowHeadRight.clone();
-    arrowHeadRight.position.y = -(lineHeight + _this.beamDetails.height - veticalLineExtraY);
+    arrowHeadRight.position.y = -(beamLineHeight + _this.beamDetails.height - verticalLineExtraY);
     lineAndSpriteHolder.add(arrowHeadRight);
 
     heightBarLeft = heightBarLeft.clone();
-    heightBarLeft.position.y = -(lineHeight + _this.beamDetails.height + veticalLineExtraY);
+    heightBarLeft.position.y = -(beamLineHeight + _this.beamDetails.height + verticalLineExtraY);
     lineAndSpriteHolder.add(heightBarLeft);
 
     heightBarRight = heightBarRight.clone();
-    heightBarRight.position.y = -(lineHeight + _this.beamDetails.height + veticalLineExtraY);
+    heightBarRight.position.y = -(beamLineHeight + _this.beamDetails.height + verticalLineExtraY);
     lineAndSpriteHolder.add(heightBarRight);
 
     beamMesh.rotation.y = Math.PI / 2;
@@ -1325,11 +1317,6 @@ function loadObject (name, variable, callback, initiallyVisible, initialOpacity)
         }
         else return variable.mesh;
     };
-}
-
-function addToScene (obj, parent) {
-    if(!parent) parent = beamHolder;
-    parent.add(obj.mesh);
 }
 
 function interpolateVector2 (vector1, vector2, alignment) {
